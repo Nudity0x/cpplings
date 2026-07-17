@@ -27,10 +27,23 @@ cpplings compiles real C++, so you need a C++17 toolchain. Any one of these work
   `pacman -S mingw-w64-ucrt-x86_64-gcc`, or the Visual Studio Build Tools
   (`cl.exe`)
 
-### 2. Install cpplings
+### 2. Get cpplings running
 
-cpplings itself is a small Python program. Install it straight from the
-repository with `pipx` (recommended) or `pip`:
+You need Python 3.9+ either way. Pick whichever path suits you:
+
+**Option A — double-click launcher (no install).** Grab the repo (clone it or
+download the ZIP from the green *Code* button), then run the launcher for your
+platform straight from the checkout:
+
+- **Windows** — double-click **`cpplings-windows.bat`**
+- **macOS / Linux** — run **`./cpplings-unix.sh`** (or double-click it)
+
+The launcher finds Python, sets up the exercises in a `workspace/` folder the
+first time, and drops you into the watch TUI. No `pip install`, no `PATH`
+fiddling. Skip straight to [Doing the exercises](#doing-the-exercises).
+
+**Option B — install as a command.** If you'd rather have a `cpplings` command
+on your `PATH`, install it with `pipx` (recommended) or `pip`:
 
 ```bash
 pipx install git+https://github.com/Nudity0x/cpplings.git
@@ -39,16 +52,11 @@ pipx install git+https://github.com/Nudity0x/cpplings.git
 #   cd cpplings && pipx install .
 ```
 
-### 3. Initialize the exercises
+Then set up the exercises and start the watch loop:
 
 ```bash
 cpplings init              # copies the exercises into ./cpplings
 cd cpplings
-```
-
-### 4. Start the watch loop
-
-```bash
 cpplings watch             # or just: cpplings
 ```
 
