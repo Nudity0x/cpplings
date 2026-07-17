@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cpplings"
+version = "0.1.0"
+description = "Rustlings for C++ — a small-exercise, auto-checking TUI to learn C++ by fixing broken code."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "cpplings" }]
+keywords = ["cpp", "c++", "learning", "exercises", "tui", "rustlings"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C++",
+    "Topic :: Education",
+    "Environment :: Console",
+]
+dependencies = [
+    "textual>=0.60",
+    "watchdog>=3.0",
+    "tomli>=2.0 ; python_version < '3.11'",
+    # C++ syntax highlighting in the in-TUI editor. Optional at runtime (the
+    # editor degrades to plain text if missing), but shipped by default.
+    # tree-sitter-cpp's highlight query is only a delta over the C grammar, so
+    # tree-sitter-c supplies highlighting for base constructs (#include, types,
+    # return, string literals).
+    "tree-sitter>=0.23",
+    "tree-sitter-cpp>=0.23",
+    "tree-sitter-c>=0.23",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+cpplings = "cpplings.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/Nudity0x/cpplings"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cpplings"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"cpplings/data" = "cpplings/data"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,1031 @@
+# cpplings exercise manifest.
+#
+# Order here is the order learners progress through. Each exercise has:
+#   name  - unique, matches the .cpp filename (without extension)
+#   dir   - section directory under exercises/ and solutions/
+#   test  - true if the exercise uses cpplings_test.hpp (assertions), false if
+#           it provides its own main(). Informational: the runner compiles and
+#           runs every exercise regardless.
+#   hint  - shown on demand (press 'h' in watch mode, or `cpplings hint`).
+
+format_version = 1
+
+welcome_message = """
+Welcome to cpplings!
+
+Fix each C++ exercise so it compiles and its tests pass, then remove the
+"// I AM NOT DONE" comment to advance. Exercises get checked automatically
+when you save. Press 'h' for a hint, 'l' to list exercises, 'q' to quit.
+"""
+
+final_message = """
+You reached the end of cpplings — 97 exercises across the C++ core, resource
+management, OOP, the STL, and the idioms that make C++ code correct and modern.
+Nice work. Go build something.
+"""
+
+[[exercises]]
+name = "intro1"
+dir = "00_intro"
+test = false
+hint = """
+There is no code to fix here. Just delete the "// I AM NOT DONE" line and save.
+"""
+
+[[exercises]]
+name = "intro2"
+dir = "00_intro"
+test = false
+hint = """
+Every C++ statement ends with a semicolon. The std::cout line is missing one.
+"""
+
+[[exercises]]
+name = "variables1"
+dir = "01_variables"
+hint = """
+Every variable needs a type. Put `int` before `answer`.
+"""
+
+[[exercises]]
+name = "variables2"
+dir = "01_variables"
+hint = """
+A `char` holds only a small range (usually -128..127), so 300 overflows it.
+Use a type that can hold 300, like `int`.
+"""
+
+[[exercises]]
+name = "variables3"
+dir = "01_variables"
+hint = """
+Declare `int x = 10;` before it is used in the assertion.
+"""
+
+[[exercises]]
+name = "variables4"
+dir = "01_variables"
+hint = """
+A `const` variable cannot be reassigned. Either drop the `const` so the
+reassignment is legal, or initialize it to 100 directly and remove the
+assignment.
+"""
+
+[[exercises]]
+name = "variables5"
+dir = "01_variables"
+hint = """
+Replace the declaration with `auto total = a + b;`. Both operands are int, so
+`auto` deduces int.
+"""
+
+[[exercises]]
+name = "variables6"
+dir = "01_variables"
+hint = """
+An uninitialized variable holds garbage. Give it an explicit initial value so
+the result is defined.
+"""
+
+[[exercises]]
+name = "variables_challenge"
+dir = "01_variables"
+hint = """
+Compute the subtotal with a loop, keep the tax rate as a const double, and use
+static_cast<int> to convert the final double back to whole cents. auto keeps the
+running total's type tidy.
+"""
+
+[[exercises]]
+name = "io1"
+dir = "02_io"
+hint = """
+std::cout uses the << operator to chain output. Send the message then a newline.
+"""
+
+[[exercises]]
+name = "io2"
+dir = "02_io"
+hint = """
+Combine pieces with <<: `std::cout << "x = " << x << "\\n";`.
+"""
+
+[[exercises]]
+name = "io3"
+dir = "02_io"
+hint = """
+std::stoi(text) parses the leading integer out of a std::string. Return it.
+"""
+
+[[exercises]]
+name = "io_challenge"
+dir = "02_io"
+hint = """
+Build the receipt line by line into a std::ostringstream with <<, then return
+its .str(). Mind the exact spacing and newlines the test expects.
+"""
+
+[[exercises]]
+name = "operators1"
+dir = "03_operators"
+hint = """
+Integer division truncates. To get a remainder, use the modulo operator %.
+"""
+
+[[exercises]]
+name = "operators2"
+dir = "03_operators"
+hint = """
+The compound operators += -= *= modify a variable in place. Pick the one that
+matches the intended arithmetic.
+"""
+
+[[exercises]]
+name = "operators3"
+dir = "03_operators"
+hint = """
+Comparison operators return bool. Use == to test equality (not =, which
+assigns).
+"""
+
+[[exercises]]
+name = "operators4"
+dir = "03_operators"
+hint = """
+The logical operators && (and) and || (or) combine boolean expressions. Choose
+the one that makes the test pass.
+"""
+
+[[exercises]]
+name = "operators_challenge"
+dir = "03_operators"
+hint = """
+A leap year is divisible by 4 AND (not divisible by 100 OR divisible by 400).
+Translate that straight into %, &&, and || in one boolean expression.
+"""
+
+[[exercises]]
+name = "conditionals1"
+dir = "04_conditionals"
+hint = """
+An if/else picks one of two branches. Make sure the condition uses == and the
+branches return the right values.
+"""
+
+[[exercises]]
+name = "conditionals2"
+dir = "04_conditionals"
+hint = """
+Chain conditions with `else if`. Order matters: test the most specific or
+highest threshold first.
+"""
+
+[[exercises]]
+name = "conditionals3"
+dir = "04_conditionals"
+hint = """
+The ternary operator `cond ? a : b` evaluates to one of two values. Use it to
+pick the result.
+"""
+
+[[exercises]]
+name = "conditionals4"
+dir = "04_conditionals"
+hint = """
+A switch needs a `break` after each case, or execution falls through to the
+next one. Add the missing breaks (or a default).
+"""
+
+[[exercises]]
+name = "conditionals_challenge"
+dir = "04_conditionals"
+hint = """
+Guard the out-of-range scores first (return '?'), then use an if / else-if chain
+from the highest threshold down (>=90, >=80, ...), returning 'F' at the end.
+"""
+
+[[exercises]]
+name = "loops1"
+dir = "05_loops"
+hint = """
+A for loop: `for (int i = 0; i < n; ++i)`. Make sure the bound and the update
+move toward termination.
+"""
+
+[[exercises]]
+name = "loops2"
+dir = "05_loops"
+hint = """
+A while loop runs as long as its condition is true. Update the loop variable
+inside the body so it eventually stops.
+"""
+
+[[exercises]]
+name = "loops3"
+dir = "05_loops"
+hint = """
+A range-based for loop `for (int x : container)` visits each element. Accumulate
+into a running total.
+"""
+
+[[exercises]]
+name = "loops4"
+dir = "05_loops"
+hint = """
+`continue` skips to the next iteration; `break` exits the loop. Use whichever
+matches the described behavior.
+"""
+
+[[exercises]]
+name = "loops_challenge"
+dir = "05_loops"
+hint = """
+Numbers below 2 are not prime. Otherwise loop a divisor d from 2 up to n/2 (or
+sqrt(n)); if any d divides n evenly (n % d == 0), it's not prime. Survive the
+loop and it is.
+"""
+
+[[exercises]]
+name = "functions1"
+dir = "06_functions"
+hint = """
+A function needs a return type, a name, parameters, and a body that returns the
+right type. Fill in the body so it returns the sum.
+"""
+
+[[exercises]]
+name = "functions2"
+dir = "06_functions"
+hint = """
+The declared return type must match what you return. Return an int from an
+int-returning function.
+"""
+
+[[exercises]]
+name = "functions3"
+dir = "06_functions"
+hint = """
+Default arguments go in the declaration: `int f(int x, int step = 1)`. Callers
+may then omit that argument.
+"""
+
+[[exercises]]
+name = "functions4"
+dir = "06_functions"
+hint = """
+Overloaded functions share a name but differ in parameter types. Add the
+overload the test calls.
+"""
+
+[[exercises]]
+name = "functions_challenge"
+dir = "06_functions"
+hint = """
+Write factorial recursively: base case n <= 1 returns 1, else n * factorial(n-1).
+Then choose(n, k) = factorial(n) / (factorial(k) * factorial(n - k)).
+"""
+
+[[exercises]]
+name = "arrays1"
+dir = "07_arrays"
+hint = """
+A C-style array is indexed from 0. The last valid index is size - 1; watch for
+off-by-one in the loop bound.
+"""
+
+[[exercises]]
+name = "arrays2"
+dir = "07_arrays"
+hint = """
+std::array<int, N> knows its own size via .size() and is safer than a raw
+array. Iterate it like any container.
+"""
+
+[[exercises]]
+name = "arrays3"
+dir = "07_arrays"
+hint = """
+To modify array elements in a loop, take them by reference (`int& x : arr`) or
+index by position.
+"""
+
+[[exercises]]
+name = "arrays_challenge"
+dir = "07_arrays"
+hint = """
+Track two values, largest and second, both starting at INT_MIN. For each element:
+if it beats largest, push largest down into second and update largest; else if
+it's below largest but above second, update second.
+"""
+
+[[exercises]]
+name = "strings1"
+dir = "08_strings"
+hint = """
+std::string supports + for concatenation and .size()/.length() for length.
+"""
+
+[[exercises]]
+name = "strings2"
+dir = "08_strings"
+hint = """
+Index a string with [] or .at(i) to read individual characters. Characters are
+compared with char literals like 'a'.
+"""
+
+[[exercises]]
+name = "strings3"
+dir = "08_strings"
+hint = """
+.substr(pos, len) extracts part of a string; .find(x) locates a substring. Use
+them to build the expected result.
+"""
+
+[[exercises]]
+name = "strings_challenge"
+dir = "08_strings"
+hint = """
+Walk the sentence character by character with an `in_word` flag. Count a new word
+on each space-to-nonspace transition. Reset the flag on spaces.
+"""
+
+[[exercises]]
+name = "pointers1"
+dir = "09_pointers"
+hint = """
+A pointer holds an address. Take one with & and read through it with * (deref).
+"""
+
+[[exercises]]
+name = "pointers2"
+dir = "09_pointers"
+hint = """
+Writing through a pointer (`*p = value`) changes the pointed-to variable. Use it
+to update the original.
+"""
+
+[[exercises]]
+name = "pointers3"
+dir = "09_pointers"
+hint = """
+A pointer can walk an array: `*(p + i)` or `p[i]` is the i-th element. Advance
+it to visit each element.
+"""
+
+[[exercises]]
+name = "pointers_challenge"
+dir = "09_pointers"
+hint = """
+Guard against nullptr / size <= 1 first. Then two pointers: front = data, back =
+data + size - 1. Swap *front and *back, step front forward and back backward,
+stop when they meet.
+"""
+
+[[exercises]]
+name = "references1"
+dir = "10_references"
+hint = """
+A reference is an alias: `int& r = x;`. Changing r changes x. No dereference
+needed.
+"""
+
+[[exercises]]
+name = "references2"
+dir = "10_references"
+hint = """
+Pass by reference (`int& x`) so the function modifies the caller's variable
+instead of a copy.
+"""
+
+[[exercises]]
+name = "references3"
+dir = "10_references"
+hint = """
+Take large parameters by `const&` to avoid copies while keeping them read-only.
+"""
+
+[[exercises]]
+name = "references_challenge"
+dir = "10_references"
+hint = """
+Read value through the const& input; write the clamped result through the out
+reference. Return true when you had to clamp (below low or above high), false
+when value was already in range.
+"""
+
+[[exercises]]
+name = "structs1"
+dir = "11_structs"
+hint = """
+Access struct members with the dot operator: `p.x`. Set each field to the
+expected value.
+"""
+
+[[exercises]]
+name = "structs2"
+dir = "11_structs"
+hint = """
+A struct can have member functions. Implement the method to compute from the
+struct's own fields.
+"""
+
+[[exercises]]
+name = "structs3"
+dir = "11_structs"
+hint = """
+A constructor initializes members, often via an initializer list:
+`Point(int x, int y) : x(x), y(y) {}`.
+"""
+
+[[exercises]]
+name = "structs_challenge"
+dir = "11_structs"
+hint = """
+area(const Rectangle&) returns width * height. total_area walks the array by
+index (rects[i]) and sums each area(...). Take the Rectangle by const& to avoid
+copies.
+"""
+
+[[exercises]]
+name = "enums1"
+dir = "12_enums"
+hint = """
+A scoped enum is `enum class Color { Red, Green };` and values are used as
+`Color::Red`. Return the right enumerator.
+"""
+
+[[exercises]]
+name = "enums2"
+dir = "12_enums"
+hint = """
+Enumerators have integer values starting at 0 unless you assign them. You can
+set explicit values like `= 1`.
+"""
+
+[[exercises]]
+name = "enums3"
+dir = "12_enums"
+hint = """
+Switch over an enum to map each enumerator to a result. Cover every case (or add
+a default).
+"""
+
+[[exercises]]
+name = "enums_challenge"
+dir = "12_enums"
+hint = """
+Model the light as `enum class Light { Green, Yellow, Red }`. next() switches
+Green->Yellow->Red->Green; go_duration() switches each to its number. Handle
+every enumerator so the compiler is happy.
+"""
+
+[[exercises]]
+name = "vectors1"
+dir = "13_vectors"
+hint = """
+std::vector grows with .push_back(x) and reports .size(). Add the elements the
+test expects.
+"""
+
+[[exercises]]
+name = "vectors2"
+dir = "13_vectors"
+hint = """
+Access elements by index with [] or .at(i). Modify in place or read as needed.
+"""
+
+[[exercises]]
+name = "vectors3"
+dir = "13_vectors"
+hint = """
+Iterate with a range-based for to sum or transform. Take elements by reference
+to modify them.
+"""
+
+[[exercises]]
+name = "vectors_challenge"
+dir = "13_vectors"
+hint = """
+Keep a running best as you walk the input. For each value, raise best to it if
+it's larger (or it's the first element), then push_back(best). An empty input
+yields an empty result.
+"""
+
+[[exercises]]
+name = "classes1"
+dir = "14_classes"
+hint = """
+Class members are private by default. Add a `public:` section so the test can
+call the methods.
+"""
+
+[[exercises]]
+name = "classes2"
+dir = "14_classes"
+hint = """
+A getter returns a private member; a setter assigns to it. Implement both so the
+encapsulated value round-trips.
+"""
+
+[[exercises]]
+name = "classes3"
+dir = "14_classes"
+hint = """
+A constructor sets up initial state. Use an initializer list to set members from
+the constructor's arguments.
+"""
+
+[[exercises]]
+name = "classes_challenge"
+dir = "14_classes"
+hint = """
+Keep balance_ private. deposit ignores non-positive amounts. withdraw only
+succeeds (and returns true) when the amount is positive and <= balance_,
+otherwise returns false and leaves the balance untouched. That's the invariant.
+"""
+
+[[exercises]]
+name = "templates1"
+dir = "15_templates"
+hint = """
+A function template starts with `template <typename T>`. Use T for the parameter
+and return types so it works for any type.
+"""
+
+[[exercises]]
+name = "templates2"
+dir = "15_templates"
+hint = """
+The compiler deduces T from the arguments. Make the body work for whatever type
+T is (it must support the operation you use).
+"""
+
+[[exercises]]
+name = "templates3"
+dir = "15_templates"
+hint = """
+A class template (`template <typename T> class Box`) stores and returns a T.
+Parameterize the member type.
+"""
+
+[[exercises]]
+name = "templates_challenge"
+dir = "15_templates"
+hint = """
+Prefix the function with template <typename T> and swap the int types for T:
+take const std::vector<T>& and const T&. Count elements that == target. Now it
+works for int, std::string, char alike.
+"""
+
+[[exercises]]
+name = "move1"
+dir = "16_move_semantics"
+hint = """
+std::move(x) casts x to an rvalue so it can be moved instead of copied. Wrap the
+argument in std::move.
+"""
+
+[[exercises]]
+name = "move2"
+dir = "16_move_semantics"
+hint = """
+In the move constructor: copy other.data and other.size into this object, then
+set other.data = nullptr and other.size = 0 so the destructor is safe.
+"""
+
+[[exercises]]
+name = "move3"
+dir = "16_move_semantics"
+hint = """
+Add other's total to this->total, then set other.total = 0 to leave the source
+empty.
+"""
+
+[[exercises]]
+name = "move_challenge"
+dir = "16_move_semantics"
+hint = """
+Rule of Five: =delete the copy ops, then write move ctor and move assignment
+that steal data_/size_/cap_ and null out the source (guard self-assignment and
+delete[] the old buffer first). The destructor does delete[] data_. push grows
+the buffer when size_ == cap_.
+"""
+
+[[exercises]]
+name = "smart1"
+dir = "17_smart_pointers"
+hint = """
+`auto p = std::make_unique<int>(42);` creates a unique_ptr owning an int of 42.
+"""
+
+[[exercises]]
+name = "smart2"
+dir = "17_smart_pointers"
+hint = """
+Copying a shared_ptr shares ownership: `second = first;`. use_count() then
+reports 2.
+"""
+
+[[exercises]]
+name = "smart3"
+dir = "17_smart_pointers"
+hint = """
+Return `std::make_unique<Widget>(...)` and set its id, or build it then assign
+the field before returning.
+"""
+
+[[exercises]]
+name = "smart4"
+dir = "17_smart_pointers"
+hint = """
+A unique_ptr can't be copied. Move it into the vector:
+`pool.push_back(std::move(owner));`.
+"""
+
+[[exercises]]
+name = "smart_challenge"
+dir = "17_smart_pointers"
+hint = """
+Registry holds a std::vector<std::unique_ptr<Widget>>. add() does
+widgets_.push_back(std::make_unique<Widget>(id)) then returns
+widgets_.back().get() — a non-owning raw observer pointer. count() and
+total_ids() walk the vector.
+"""
+
+[[exercises]]
+name = "inheritance1"
+dir = "18_inheritance"
+hint = """
+Write `class Dog : public Animal { ... }` so Dog inherits Animal's members.
+"""
+
+[[exercises]]
+name = "inheritance2"
+dir = "18_inheritance"
+hint = """
+Call the base constructor in the initializer list: `Square(int side) :
+Shape(side, side) {}`.
+"""
+
+[[exercises]]
+name = "inheritance3"
+dir = "18_inheritance"
+hint = """
+`balance` is protected, so a derived class can use it directly:
+`balance += balance * rate_percent / 100;`.
+"""
+
+[[exercises]]
+name = "inheritance_challenge"
+dir = "18_inheritance"
+hint = """
+Employee stores base_salary_ as protected so Manager can read it. annual_pay()
+returns base_salary_ * 12; Manager adds bonus_ before multiplying:
+(base_salary_ + bonus_) * 12. Manager's constructor calls Employee(base_salary)
+in its initializer list.
+"""
+
+[[exercises]]
+name = "poly1"
+dir = "19_polymorphism"
+hint = """
+Mark the base method `virtual`, then in Cat write `int sound() const override {
+return 5; }`.
+"""
+
+[[exercises]]
+name = "poly2"
+dir = "19_polymorphism"
+hint = """
+Override area() in each derived class with the `override` keyword, returning the
+shape-specific formula.
+"""
+
+[[exercises]]
+name = "poly3"
+dir = "19_polymorphism"
+hint = """
+Add `virtual ~Base() = default;` so deleting through a Base* runs ~Derived.
+"""
+
+[[exercises]]
+name = "poly_challenge"
+dir = "19_polymorphism"
+hint = """
+Shape has a pure virtual `int area() const = 0;` and a `virtual ~Shape() =
+default;`. Circle and Square each store their dimension and override area()
+(3*r*r and s*s). total_area walks the vector<unique_ptr<Shape>> calling
+shape->area() through the base pointer.
+"""
+
+[[exercises]]
+name = "operators_ov1"
+dir = "20_operator_overloading"
+hint = """
+`Vec2 operator+(const Vec2& other) const { return {x + other.x, y + other.y}; }`.
+"""
+
+[[exercises]]
+name = "operators_ov2"
+dir = "20_operator_overloading"
+hint = """
+`bool operator==(const Point& o) const { return x == o.x && y == o.y; }`.
+"""
+
+[[exercises]]
+name = "operators_ov3"
+dir = "20_operator_overloading"
+hint = """
+Return a reference so callers can assign: `int& operator[](int i) { return
+data[i]; }`.
+"""
+
+[[exercises]]
+name = "operator_challenge"
+dir = "20_operator_overloading"
+hint = """
+Add three const members to Vec2: operator+ returns {x+o.x, y+o.y}, operator*(int
+k) returns {x*k, y*k}, and operator== compares both fields. Each returns a fresh
+Vec2 (or bool) without mutating this.
+"""
+
+[[exercises]]
+name = "exceptions1"
+dir = "21_exceptions"
+hint = """
+`if (b == 0) throw std::runtime_error("divide by zero");` before dividing.
+"""
+
+[[exercises]]
+name = "exceptions2"
+dir = "21_exceptions"
+hint = """
+Define a class deriving from std::exception (or std::runtime_error) and throw
+it. Catch it by reference.
+"""
+
+[[exercises]]
+name = "exceptions3"
+dir = "21_exceptions"
+hint = """
+Catch, do partial work, then `throw;` (with no operand) to rethrow the current
+exception to the outer handler.
+"""
+
+[[exercises]]
+name = "exceptions_challenge"
+dir = "21_exceptions"
+hint = """
+StackError : public std::runtime_error forwards its message to the base
+(`: std::runtime_error(msg)`). IntStack stores a capacity and a vector: push
+throws StackError("full") at capacity, pop throws StackError("empty") when
+empty else removes and returns the top. Because StackError derives from
+std::exception, catch(const std::exception&) sees it.
+"""
+
+[[exercises]]
+name = "optional1"
+dir = "22_optional_variant"
+hint = """
+Return the value directly when found (it converts to optional); return
+std::nullopt at the end.
+"""
+
+[[exercises]]
+name = "optional2"
+dir = "22_optional_variant"
+hint = """
+`return setting.value_or(fallback);`.
+"""
+
+[[exercises]]
+name = "variant1"
+dir = "22_optional_variant"
+hint = """
+`if (std::holds_alternative<int>(value)) return 1; return 2;`.
+"""
+
+[[exercises]]
+name = "optional_variant_challenge"
+dir = "22_optional_variant"
+hint = """
+Fold with an accumulator (start 0) and a pending op (start "+"). For each token:
+if it holds a std::string, reject anything other than "+"/"*" with std::nullopt,
+else set it as the current op; if it holds an int, apply the current op to the
+accumulator. Return the accumulator (it converts to std::optional<int>).
+"""
+
+[[exercises]]
+name = "lambdas1"
+dir = "23_lambdas"
+hint = """
+`auto square = [](int n) { return n * n; };`.
+"""
+
+[[exercises]]
+name = "lambdas2"
+dir = "23_lambdas"
+hint = """
+Capture factor by value: `auto scale = [factor](int x) { return x * factor; };`.
+"""
+
+[[exercises]]
+name = "lambdas3"
+dir = "23_lambdas"
+hint = """
+Pass `[](int n) { return n > 3; }` as the predicate argument.
+"""
+
+[[exercises]]
+name = "lambdas_challenge"
+dir = "23_lambdas"
+hint = """
+make_adder must capture n by value ([n]) so the closure outlives the call. Store
+the steps as std::function<int(int)> and fold: feed each step's output into the
+next.
+"""
+
+[[exercises]]
+name = "containers1"
+dir = "24_stl_containers"
+hint = """
+`counts[w] += 1;` — operator[] default-constructs missing entries to 0.
+"""
+
+[[exercises]]
+name = "containers2"
+dir = "24_stl_containers"
+hint = """
+Insert every value, then `return seen.size();` — the set drops duplicates.
+"""
+
+[[exercises]]
+name = "containers3"
+dir = "24_stl_containers"
+hint = """
+Track lo/hi in the loop, then `return {lo, hi};`.
+"""
+
+[[exercises]]
+name = "containers_challenge"
+dir = "24_stl_containers"
+hint = """
+tally: counts[word]++ in a loop. unique_words: counts.size(). most_common: walk
+the map (already sorted by key) tracking the max count; the first key to reach a
+count wins ties, which gives you the lexicographically smallest.
+"""
+
+[[exercises]]
+name = "algorithms1"
+dir = "25_stl_algorithms"
+hint = """
+`std::sort(values.begin(), values.end());` then return values.
+"""
+
+[[exercises]]
+name = "algorithms2"
+dir = "25_stl_algorithms"
+hint = """
+`return std::count(values.begin(), values.end(), target);`.
+"""
+
+[[exercises]]
+name = "algorithms3"
+dir = "25_stl_algorithms"
+hint = """
+`return std::accumulate(values.begin(), values.end(), 1, std::multiplies<int>());`
+(or a lambda that multiplies).
+"""
+
+[[exercises]]
+name = "algorithms_challenge"
+dir = "25_stl_algorithms"
+hint = """
+std::copy_if with std::back_inserter to collect evens, std::sort with a
+`[](int a, int b){ return a > b; }` comparator for descending, then
+std::accumulate over the first min(k, size) elements. Mind ptrdiff_t when
+advancing the iterator.
+"""
+
+[[exercises]]
+name = "iterators1"
+dir = "26_iterators"
+hint = """
+`for (auto it = values.begin(); it != values.end(); ++it) total += *it;`.
+"""
+
+[[exercises]]
+name = "iterators2"
+dir = "26_iterators"
+hint = """
+`if (it == values.end()) return -1; return std::distance(values.begin(), it);`.
+"""
+
+[[exercises]]
+name = "iterators3"
+dir = "26_iterators"
+hint = """
+`for (auto it = values.rbegin(); it != values.rend(); ++it) out.push_back(*it);`.
+"""
+
+[[exercises]]
+name = "iterators_challenge"
+dir = "26_iterators"
+hint = """
+Make it a template<typename T>. Walk begin() to end(); keep an element only when
+out is empty or `!(*it == out.back())`. That collapses runs of equal neighbours
+while leaving non-adjacent repeats intact.
+"""
+
+[[exercises]]
+name = "conversions1"
+dir = "27_conversions"
+hint = """
+`return static_cast<int>(value);` — truncates toward zero.
+"""
+
+[[exercises]]
+name = "conversions2"
+dir = "27_conversions"
+hint = """
+Add `Meters(int m) : value(m) {}`. A single-arg constructor also enables
+int-to-Meters conversion.
+"""
+
+[[exercises]]
+name = "conversions3"
+dir = "27_conversions"
+hint = """
+Add `operator double() const { return degrees; }`.
+"""
+
+[[exercises]]
+name = "conversions_challenge"
+dir = "27_conversions"
+hint = """
+Give both types a `explicit Type(double)` constructor and an
+`explicit operator double() const`. explicit means you must static_cast to get
+the number out. Celsius::to_fahrenheit() returns Fahrenheit(degrees*9.0/5.0+32).
+"""
+
+[[exercises]]
+name = "quiz1"
+dir = "28_quizzes"
+hint = """
+Sum the scores in a loop, guard against an empty vector, then divide by
+students.size().
+"""
+
+[[exercises]]
+name = "quiz2"
+dir = "28_quizzes"
+hint = """
+Override perimeter() in each shape: Rectangle returns 2*(w_+h_), Circle returns
+2*3*r_.
+"""
+
+[[exercises]]
+name = "quiz3"
+dir = "28_quizzes"
+hint = """
+Use table.find(key); if it != table.end() return it->second, else return
+std::nullopt.
+"""
+
+[[exercises]]
+name = "idioms1"
+dir = "29_idioms"
+hint = """
+Add `std::string name_;` and `std::vector<std::string> tags_;` as members, then
+initialize them in the constructor: `: name_(std::move(name)),
+tags_(std::move(tags))`. Write no destructor, copy, or move — that's the whole
+point of the Rule of Zero.
+"""
+
+[[exercises]]
+name = "idioms2"
+dir = "29_idioms"
+hint = """
+The constructor did `++(*count_)`; the destructor should undo it with
+`--(*count_);`. That's RAII: acquire in the constructor, release in the
+destructor, automatically at end of scope.
+"""
+
+[[exercises]]
+name = "idioms3"
+dir = "29_idioms"
+hint = """
+Initialize the member from the by-value parameter with a move:
+`: body_(std::move(body))`. The parameter is a local copy, so moving out of it
+is safe and avoids a second copy.
+"""
+
+[[exercises]]
+name = "idioms_challenge"
+dir = "29_idioms"
+hint = """
+Hold a single std::vector<std::string> member and write nothing else — no
+destructor, copy, or move. record takes std::string by value and does
+events_.push_back(std::move(event)). The vector already gives you deep copy and
+cheap move for free: that's the Rule of Zero.
+"""

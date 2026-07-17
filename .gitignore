@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# cpplings runtime workspaces & state
+workspace/
+cpplings_play/
+.cpplings-state.txt
+
+# Local scratch
+_tmp
+_v/
+
+# Editors / OS / tooling
+.claude/
+.vscode/
+.idea/
+*.swp
+.DS_Store
