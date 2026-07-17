@@ -1,5 +1,7 @@
 # cpplings
 
+[![CI](https://github.com/Nudity0x/cpplings/actions/workflows/ci.yml/badge.svg)](https://github.com/Nudity0x/cpplings/actions/workflows/ci.yml)
+
 Greetings and welcome to **cpplings**. This project contains small exercises to
 get you used to reading and writing C++ code. This includes fixing compiler
 errors, making tests pass, and getting comfortable with the language core all
