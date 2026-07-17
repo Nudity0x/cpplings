@@ -43,8 +43,5 @@ Homepage = "https://github.com/Nudity0x/cpplings"
 [tool.hatch.build.targets.wheel]
 packages = ["cpplings"]
 
-[tool.hatch.build.targets.wheel.force-include]
-"cpplings/data" = "cpplings/data"
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
